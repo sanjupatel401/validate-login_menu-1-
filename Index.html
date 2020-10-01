@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="maindiv">
+        <div class="box">
+            <H1><span>USER</span> LOGIN</H1> 
+            <i class="fa fa-5x fa-user" id="user"></i>
+
+            
+            <div class="username">
+               
+                <input type="email" name="" id="username2" placeholder="USERNAME">
+            </div>
+             <div class="password">
+                
+                <input type="password" name="" id="password2" placeholder="PASSWORD">
+                <i class="fa fa-2x fa-eye" id="eye" onclick="show()" ></i>
+                <i class="fa fa-2x fa-eye-slash" id="ceye" onclick="hide()"></i>
+            </div>
+            <div class="cheakbox">
+                <input type="checkbox" id=" check" > <span id="span">Remember Me </span>
+            </div>
+
+            <div class="btn">
+                <button id="login">LOGIN</button>
+            </div>
+
+            <a href="#" target="_blank" rel="noopener noreferrer">Forget password?</a>
+        </div>
+    </div>
+    <script src="https://use.fontawesome.com/452826394c.js"></script>
+    <script>
+
+var password =document.getElementById('password2');
+var eye=document.getElementById('eye');
+var ceye =document.getElementById('ceye');
+var email=document.getElementById('username2')
+
+email.addEventListener('blur', ()=>{
+    console.log("email is blurred");
+    // Validate email here
+    let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    let str = email.value;
+    console.log(regex, str);
+    if(regex.test(str)){
+    //    alert('Email is  valid')
+        email.classList.remove('is-invalid');
+        validEmail = true;
+    }
+    else{
+      alert('Your email is not valid');
+        email.classList.add('is-invalid');
+        validEmail = false;
+    }
+});
+
+
+eye.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+
+
+var btn=document.getElementById('login');
+
+btn.addEventListener('click',btn=()=>{
+    alert('your account is not found');
+})
+
+
+</script>
+
+
+</body>
+</html>
